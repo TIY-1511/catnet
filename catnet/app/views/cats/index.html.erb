@@ -1,0 +1,9 @@
+<h1>Cats</h1>
+
+<% @cats.each do | cat | %>
+	<p>
+		<%= cat.name %><br />
+		<%= cat.description %><br />
+		<%= image_tag(cat.url, height: 200) %><br />
+	</p>
+<% end %>
