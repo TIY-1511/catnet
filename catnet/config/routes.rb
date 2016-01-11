@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'cats' => 'cats#index'
+  post 'cats/:id/voteup' => 'cats#voteup', as: :voteup_cat
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

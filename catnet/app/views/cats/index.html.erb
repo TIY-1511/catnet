@@ -12,6 +12,11 @@
 				<%= cat.name %><br />
 				<%= cat.description %><br />
 				<%= image_tag(cat.url, class: "img-responsive") %>
+
+				<%= form_tag(voteup_cat_path(cat), method: "post") do %>
+					<%= submit_tag("Vote Up", class: "btn btn-default") %>
+					<%= pluralize(cat.vote_count, 'vote') %>	
+				<% end %>
 				<br />
 			</div>
 		<% end %>
