@@ -7,8 +7,24 @@
 
 		
 		<% @cats.each do | cat | %>
+
+			<div class="row">
+			  <div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+			      <%= image_tag(cat.url) %>
+			      <div class="caption">
+			        <h3><%= cat.name %></h3>
+			        <p><%= cat.description %></p>
+				        <%= form_tag(voteup_cat_path(cat), method: "post") do %>
+						<%= submit_tag("Vote Up", class: "btn btn-default") %>
+						<%= pluralize(cat.vote_count, 'vote') %>	
+					<% end %>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 			
-			<div class="col-md-6 col-sm-4">
+			<!-- <div class="col-md-6 col-sm-4">
 				<%= cat.name %><br />
 				<%= cat.description %><br />
 				<%= image_tag(cat.url, class: "img-responsive") %>
@@ -18,10 +34,11 @@
 					<%= pluralize(cat.vote_count, 'vote') %>	
 				<% end %>
 				<br />
-			</div>
+			</div> -->
 		<% end %>
 
 	</div>
 
 
 </div>
+
